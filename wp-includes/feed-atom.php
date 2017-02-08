@@ -38,6 +38,7 @@ do_action( 'rss_tag_pre', 'atom' );
 	<link rel="alternate" type="<?php bloginfo_rss('html_type'); ?>" href="<?php bloginfo_rss('url') ?>" />
 	<id><?php bloginfo('atom_url'); ?></id>
 	<link rel="self" type="application/atom+xml" href="<?php self_link(); ?>" />
+	<link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url'); ?>" />
 
 	<?php
 	/**

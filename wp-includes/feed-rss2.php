@@ -94,15 +94,11 @@ do_action( 'rss_tag_pre', 'rss2' );
 		<?php the_category_rss('rss2') ?>
 
 		<guid isPermaLink="false"><?php the_guid(); ?></guid>
-<?php if (get_option('rss_use_excerpt')) : ?>
 		<description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
-<?php else : ?>
-		<description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
+<?php if ( !get_option('rss_use_excerpt') ) : ?>
 	<?php $content = get_the_content_feed('rss2'); ?>
 	<?php if ( strlen( $content ) > 0 ) : ?>
 		<content:encoded><![CDATA[<?php echo $content; ?>]]></content:encoded>
-	<?php else : ?>
-		<content:encoded><![CDATA[<?php the_excerpt_rss(); ?>]]></content:encoded>
 	<?php endif; ?>
 <?php endif; ?>
 <?php if ( get_comments_number() || comments_open() ) : ?>

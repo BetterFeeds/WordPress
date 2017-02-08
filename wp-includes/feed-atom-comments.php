@@ -48,6 +48,7 @@ do_action( 'rss_tag_pre', 'atom-comments' );
 
 <?php if ( is_singular() ) { ?>
 	<link rel="alternate" type="<?php bloginfo_rss('html_type'); ?>" href="<?php comments_link_feed(); ?>" />
+	<link rel="alternate" type="application/rss+xml" href="<?php echo esc_url( get_post_comments_feed_link('', 'rss2') ); ?>" />
 	<link rel="self" type="application/atom+xml" href="<?php echo esc_url( get_post_comments_feed_link('', 'atom') ); ?>" />
 	<id><?php echo esc_url( get_post_comments_feed_link('', 'atom') ); ?></id>
 <?php } elseif (is_search()) { ?>

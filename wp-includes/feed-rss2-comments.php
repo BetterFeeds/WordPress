@@ -44,6 +44,7 @@ do_action( 'rss_tag_pre', 'rss2-comments' );
 			printf( ent2ncr( __( 'Comments for %s' ) ), get_wp_title_rss() );
 		}
 	?></title>
+	<atom:link href="<?php echo esc_url( get_post_comments_feed_link('', 'atom') ); ?>" rel="alternate" type="application/atom+xml" />
 	<atom:link href="<?php self_link(); ?>" rel="self" type="application/rss+xml" />
 	<link><?php (is_single()) ? the_permalink_rss() : bloginfo_rss("url") ?></link>
 	<description><?php bloginfo_rss("description") ?></description>

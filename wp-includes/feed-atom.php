@@ -52,10 +52,15 @@ do_action( 'rss_tag_pre', 'atom' );
 	<entry>
 		<author>
 			<name><?php the_author() ?></name>
-			<?php $author_url = get_the_author_meta('url'); if ( !empty($author_url) ) : ?>
-			<uri><?php the_author_meta('url')?></uri>
-			<?php endif;
-
+			<uri><?php
+				$author_url = get_the_author_meta('url');
+				if ( !empty($author_url) ) {
+					echo $author_url;
+				} else {
+					echo get_author_posts_url(get_the_author_meta('ID'), get_the_author_meta('user_nicename'));
+				}
+			?></uri>
+			<?php
 			/**
 			 * Fires at the end of each Atom feed author entry.
 			 *
